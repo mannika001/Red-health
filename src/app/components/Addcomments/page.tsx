@@ -3,14 +3,30 @@ import { Send } from "lucide-react";
 import { useState } from "react";
 import { Listbox } from "@headlessui/react";
 
-export default function AddComments({ users, onAddComment }: any) {
-  const [selectedUser, setSelectedUser] = useState<any>(null);
+
+interface Company {
+  name: string;
+}
+
+interface User {
+  id: number;
+  name: string;
+  company: Company;
+}
+
+interface AddCommentsProps {
+  users: User[];
+  onAddComment: (userId: number, text: string) => void;
+}
+
+export default function AddComments({ users, onAddComment }: AddCommentsProps) {
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [text, setText] = useState("");
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!selectedUser || !text) return;
-    onAddComment(Number(selectedUser.id), text);
+    onAddComment(selectedUser.id, text);
     setText("");
   };
 
@@ -19,7 +35,6 @@ export default function AddComments({ users, onAddComment }: any) {
       onSubmit={handleSubmit}
       className="space-y-5 bg-white shadow-md rounded-xl p-6 border border-gray-200"
     >
-
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">
           Select User
@@ -27,16 +42,14 @@ export default function AddComments({ users, onAddComment }: any) {
 
         <Listbox value={selectedUser} onChange={setSelectedUser}>
           <div className="relative">
-      
             <Listbox.Button className="w-full border border-gray-300 rounded-lg p-2.5 text-left focus:ring-2 focus:ring-black focus:border-black transition bg-white">
               {selectedUser
                 ? `${selectedUser.name} (${selectedUser.company.name})`
                 : "Select a user"}
             </Listbox.Button>
 
-      
             <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-lg border border-gray-300 bg-white shadow-lg z-10">
-              {users.map((u: any) => (
+              {users && users.map((u: User) => (
                 <Listbox.Option
                   key={u.id}
                   value={u}
@@ -67,7 +80,6 @@ export default function AddComments({ users, onAddComment }: any) {
         />
       </div>
 
- 
       <button
         type="submit"
         className="flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2.5 rounded-lg shadow-sm transition-colors"

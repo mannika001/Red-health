@@ -24,7 +24,7 @@ function AddComments(param) {
     const handleSubmit = (e)=>{
         e.preventDefault();
         if (!selectedUser || !text) return;
-        onAddComment(Number(selectedUser.id), text);
+        onAddComment(selectedUser.id, text);
         setText("");
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -38,7 +38,7 @@ function AddComments(param) {
                         children: "Select User"
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                        lineNumber: 24,
+                        lineNumber: 39,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$headlessui$2f$react$2f$dist$2f$components$2f$listbox$2f$listbox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Listbox"], {
@@ -52,7 +52,7 @@ function AddComments(param) {
                                     children: selectedUser ? "".concat(selectedUser.name, " (").concat(selectedUser.company.name, ")") : "Select a user"
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                                    lineNumber: 31,
+                                    lineNumber: 45,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$headlessui$2f$react$2f$dist$2f$components$2f$listbox$2f$listbox$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Listbox"].Options, {
@@ -71,29 +71,29 @@ function AddComments(param) {
                                             ]
                                         }, u.id, true, {
                                             fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                                            lineNumber: 40,
+                                            lineNumber: 53,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                                    lineNumber: 38,
+                                    lineNumber: 51,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                            lineNumber: 29,
+                            lineNumber: 44,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                        lineNumber: 28,
+                        lineNumber: 43,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                lineNumber: 23,
+                lineNumber: 38,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -103,7 +103,7 @@ function AddComments(param) {
                         children: "Comment"
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                        lineNumber: 58,
+                        lineNumber: 71,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -114,13 +114,13 @@ function AddComments(param) {
                         onChange: (e)=>setText(e.target.value)
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                        lineNumber: 61,
+                        lineNumber: 74,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                lineNumber: 57,
+                lineNumber: 70,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -132,20 +132,20 @@ function AddComments(param) {
                         className: "stroke-current"
                     }, void 0, false, {
                         fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                        lineNumber: 75,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, this),
                     "Post Comment"
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/app/components/Addcomments/page.tsx",
-                lineNumber: 71,
+                lineNumber: 83,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/app/components/Addcomments/page.tsx",
-        lineNumber: 18,
+        lineNumber: 34,
         columnNumber: 5
     }, this);
 }
@@ -752,10 +752,8 @@ function Home() {
     const sortedComments = [
         ...comments
     ].sort((a, b)=>{
-        var _a_timestamp;
-        const timeA = new Date((_a_timestamp = a.timestamp) !== null && _a_timestamp !== void 0 ? _a_timestamp : 0).getTime();
-        var _b_timestamp;
-        const timeB = new Date((_b_timestamp = b.timestamp) !== null && _b_timestamp !== void 0 ? _b_timestamp : 0).getTime();
+        const timeA = new Date(a.timestamp).getTime();
+        const timeB = new Date(b.timestamp).getTime();
         return sortOrder === "newest" ? timeB - timeA : timeA - timeB;
     });
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -771,7 +769,7 @@ function Home() {
                             children: "Comment System"
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 115,
+                            lineNumber: 129,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -779,13 +777,13 @@ function Home() {
                             children: "Share your thoughts and engage with the community. Join the conversation below!"
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 116,
+                            lineNumber: 130,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 114,
+                    lineNumber: 128,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -796,7 +794,7 @@ function Home() {
                             onAddComment: handleAddComment
                         }, void 0, false, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 123,
+                            lineNumber: 136,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -807,8 +805,8 @@ function Home() {
                                     onSortChange: setSortOrder
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 126,
-                                    columnNumber: 5
+                                    lineNumber: 139,
+                                    columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "space-y-4",
@@ -820,35 +818,35 @@ function Home() {
                                             timestamp: c.timestamp
                                         }, c.id, false, {
                                             fileName: "[project]/src/app/page.tsx",
-                                            lineNumber: 132,
-                                            columnNumber: 13
+                                            lineNumber: 145,
+                                            columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/src/app/page.tsx",
-                                    lineNumber: 130,
+                                    lineNumber: 143,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/app/page.tsx",
-                            lineNumber: 125,
+                            lineNumber: 138,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/app/page.tsx",
-                    lineNumber: 121,
+                    lineNumber: 135,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/app/page.tsx",
-            lineNumber: 112,
+            lineNumber: 127,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/app/page.tsx",
-        lineNumber: 111,
+        lineNumber: 126,
         columnNumber: 5
     }, this);
 }

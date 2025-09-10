@@ -4,7 +4,27 @@ import AddComments from "./components/Addcomments/page";
 import CommentCard from "./components/Allcomments/page";
 import CommentsHeader from "./components/Commentheader/page";
 
-const usersData = [
+interface Company {
+  name: string;
+}
+
+interface User {
+  id: number;
+  name: string;
+  email: string;
+  company: Company;
+}
+
+interface Comment {
+  id: number;
+  name: string;
+  email: string;
+  company: string;
+  comment: string;
+  timestamp: string;
+}
+
+const usersData: User[] = [
   { id: 1, name: "John Doe", email: "john.doe@techcorp.com", company: { name: "TechCorp Solutions" } },
   { id: 2, name: "Sarah Johnson", email: "sarah.johnson@innovate.io", company: { name: "Innovate Technologies" } },
   { id: 3, name: "Mike Chen", email: "mike.chen@webdev.co", company: { name: "WebDev Co." } },
@@ -15,8 +35,7 @@ const usersData = [
   { id: 8, name: "Maria Garcia", email: "maria.garcia@digital.hub", company: { name: "Digital Hub Solutions" } },
 ];
 
-
-const defaultComments = [
+const defaultComments: Comment[] = [
   {
     id: 1,
     name: "John Doe",
@@ -65,19 +84,16 @@ const defaultComments = [
 ];
 
 export default function Home() {
-  const [comments, setComments] = useState<any[]>([]);
-const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
 
   useEffect(() => {
     const saved = localStorage.getItem("comments");
-    const savedComments = saved ? JSON.parse(saved) : [];
-
+    const savedComments: Comment[] = saved ? JSON.parse(saved) : [];
     setComments([...defaultComments, ...savedComments]);
   }, []);
 
- 
   useEffect(() => {
-  
     const userAdded = comments.filter(
       (c) => !defaultComments.some((d) => d.id === c.id)
     );
@@ -88,8 +104,8 @@ const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
     const user = usersData.find((u) => u.id === userId);
     if (!user) return;
 
-    const newComment = {
-      id: Date.now(), 
+    const newComment: Comment = {
+      id: Date.now(),
       name: user.name,
       email: user.email,
       company: user.company.name,
@@ -100,17 +116,15 @@ const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
     setComments((prev) => [newComment, ...prev]);
   };
 
-
- const sortedComments = [...comments].sort((a, b) => {
-    const timeA = new Date(a.timestamp ?? 0).getTime();
-    const timeB = new Date(b.timestamp ?? 0).getTime();
+  const sortedComments = [...comments].sort((a, b) => {
+    const timeA = new Date(a.timestamp).getTime();
+    const timeB = new Date(b.timestamp).getTime();
     return sortOrder === "newest" ? timeB - timeA : timeA - timeB;
   });
 
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-4xl">
-      
         <header className="text-center mb-12">
           <h1 className="text-4xl font-bold text-foreground mb-4">Comment System</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -119,25 +133,24 @@ const [sortOrder, setSortOrder] = useState<"newest" | "oldest">("newest");
         </header>
 
         <div className="space-y-8">
-     
           <AddComments users={usersData} onAddComment={handleAddComment} />
 
           <div className="space-y-6">
-    <CommentsHeader
-          totalComments={comments.length}
-          onSortChange={setSortOrder} 
-        />
+            <CommentsHeader
+              totalComments={comments.length}
+              onSortChange={setSortOrder}
+            />
             <div className="space-y-4">
               {sortedComments.map((c) => (
-            <CommentCard
-              key={c.id}
-              name={c.name}
-              email={c.email}
-              company={c.company}
-              comment={c.comment}
-              timestamp={c.timestamp}
-            />
-          ))}
+                <CommentCard
+                  key={c.id}
+                  name={c.name}
+                  email={c.email}
+                  company={c.company}
+                  comment={c.comment}
+                  timestamp={c.timestamp}
+                />
+              ))}
             </div>
           </div>
         </div>
